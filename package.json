@@ -1,0 +1,77 @@
+{
+  "name": "sheetsense",
+  "version": "1.0.0",
+  "description": "AI-powered Excel Add-in for natural language spreadsheet interaction",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "type-check": "tsc --noEmit",
+    "start": "npm run dev"
+  },
+  "keywords": [
+    "excel",
+    "add-in",
+    "office",
+    "ai",
+    "typescript",
+    "react"
+  ],
+  "author": "SheetSense Team",
+  "license": "MIT",
+  "dependencies": {
+    "@microsoft/office-js": "^1.1.0",
+    "ajv": "^8.17.1",
+    "axios": "^1.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.48.0",
+    "react-hot-toast": "^2.4.1",
+    "react-query": "^3.39.0",
+    "zustand": "^4.4.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.0",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^20.0.0",
+    "@types/office-js": "^1.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "buffer": "^6.0.3",
+    "css-loader": "^6.8.0",
+    "eslint": "^8.50.0",
+    "eslint-plugin-react": "^7.33.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.6.0",
+    "jest-environment-jsdom": "^30.0.2",
+    "prettier": "^3.0.0",
+    "process": "^0.11.10",
+    "style-loader": "^3.3.0",
+    "ts-jest": "^29.4.0",
+    "ts-loader": "^9.4.0",
+    "typescript": "^5.0.0",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.0",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
