@@ -17,6 +17,12 @@ export const ResponseDisplay: React.FC = () => {
             <li>"Add a profit margin column"</li>
             <li>"Create a summary table"</li>
             <li>"Format this data as currency"</li>
+            <li>"Copy A1:B5 to C1"</li>
+            <li>"Move column B to column D"</li>
+            <li>"Sort by column A descending"</li>
+            <li>"Filter to show only values &gt; 100"</li>
+            <li>"Create a line chart from this data"</li>
+            <li>"Remove duplicate values"</li>
           </ul>
           <div className="welcome-tips">
             <p><strong>Tips:</strong></p>
@@ -24,6 +30,8 @@ export const ResponseDisplay: React.FC = () => {
               <li>Select cells in Excel before asking questions</li>
               <li>Be specific about what you want to do</li>
               <li>Use natural language - no need for technical terms</li>
+              <li>Specify ranges like "A1:B10" for precise operations</li>
+              <li>Use "Copy from X to Y" for data movement</li>
             </ul>
           </div>
         </div>

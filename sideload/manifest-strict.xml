@@ -5,14 +5,12 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xsi:type="TaskPaneApp">
 
-  <Id>aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee</Id>
+  <Id>11111111-1111-1111-1111-111111111111</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>SheetSense</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="SheetSense" />
   <Description DefaultValue="AI-powered Excel Add-in" />
-  <IconUrl DefaultValue="http://localhost:3000/assets/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="http://localhost:3000/assets/icon-64.png" />
 
   <AppDomains>
     <AppDomain>http://localhost:3000</AppDomain>
@@ -42,11 +40,6 @@
                     <Title resid="TaskpaneButton.Label" />
                     <Description resid="TaskpaneButton.Tooltip" />
                   </Supertip>
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16x16" />
-                    <bt:Image size="32" resid="Icon.32x32" />
-                    <bt:Image size="80" resid="Icon.80x80" />
-                  </Icon>
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>ButtonId1</TaskpaneId>
                     <SourceLocation resid="Taskpane.Url" />
@@ -59,11 +52,6 @@
       </Host>
     </Hosts>
     <Resources>
-      <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="http://localhost:3000/assets/icon-16.png" />
-        <bt:Image id="Icon.32x32" DefaultValue="http://localhost:3000/assets/icon-32.png" />
-        <bt:Image id="Icon.80x80" DefaultValue="http://localhost:3000/assets/icon-80.png" />
-      </bt:Images>
       <bt:Urls>
         <bt:Url id="Taskpane.Url" DefaultValue="http://localhost:3000/index.html" />
       </bt:Urls>

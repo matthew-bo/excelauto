@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useOffice } from '../services/OfficeProvider';
 import { useStore } from '../services/StoreProvider';
 import { useAI } from '../services/AIProvider';
@@ -7,12 +7,14 @@ import { ResponseDisplay } from './components/ResponseDisplay';
 import { LoadingSpinner } from './components/LoadingSpinner';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { OperationExecutor } from './components/OperationExecutor';
+import { SettingsPanel } from './components/SettingsPanel';
 import '../styles/App.css';
 
 export const App: React.FC = () => {
   const { isReady, error: officeError } = useOffice();
   const { isLoading, error: storeError } = useStore();
   const { isProcessing } = useAI();
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   // Combine all errors
   const error = officeError || storeError;
@@ -35,8 +37,19 @@ export const App: React.FC = () => {
     <ErrorBoundary>
       <div className="app-container">
         <header className="app-header">
-          <h1>SheetSense</h1>
-          <p>AI-powered Excel assistant</p>
+          <div className="header-content">
+            <div className="header-left">
+              <h1>SheetSense</h1>
+              <p>AI-powered Excel assistant</p>
+            </div>
+            <button
+              className="settings-button"
+              onClick={() => setIsSettingsOpen(true)}
+              aria-label="Open settings"
+            >
+              ⚙️
+            </button>
+          </div>
         </header>
         
         <main className="app-main">
@@ -58,6 +71,11 @@ export const App: React.FC = () => {
           <ResponseDisplay />
           <OperationExecutor />
         </main>
+
+        <SettingsPanel 
+          isOpen={isSettingsOpen} 
+          onClose={() => setIsSettingsOpen(false)} 
+        />
       </div>
     </ErrorBoundary>
   );

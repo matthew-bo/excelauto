@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAI } from '../../services/AIProvider';
 import { useStore } from '../../services/StoreProvider';
 
 export const OperationExecutor: React.FC = () => {
   const { lastResponse, executeOperations, isProcessing } = useAI();
   const { setError } = useStore();
+  const [errorToast, setErrorToast] = useState<string | null>(null);
 
   // Auto-execute operations when AI responds successfully
   useEffect(() => {
@@ -13,7 +14,6 @@ export const OperationExecutor: React.FC = () => {
       const timer = setTimeout(() => {
         handleExecute();
       }, 1000);
-      
       return () => clearTimeout(timer);
     }
     return undefined; // Explicit return for when conditions aren't met
@@ -28,6 +28,9 @@ export const OperationExecutor: React.FC = () => {
       await executeOperations();
     } catch (error) {
       setError(`Failed to execute operations: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      setErrorToast(`Failed to execute operations: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      // eslint-disable-next-line no-console
+      console.error('[UI OperationExecutor Error]', error);
     }
   };
 
@@ -36,8 +39,22 @@ export const OperationExecutor: React.FC = () => {
     // This could be enhanced to store skipped operations
   };
 
+  // Auto-hide error toast after 5 seconds
+  useEffect(() => {
+    if (errorToast) {
+      const timer = setTimeout(() => setErrorToast(null), 5000);
+      return () => clearTimeout(timer);
+    }
+    return undefined;
+  }, [errorToast]);
+
   return (
     <div className="operation-executor">
+      {errorToast && (
+        <div className="error-toast">
+          <span>⚠️ {errorToast}</span>
+        </div>
+      )}
       <div className="operation-header">
         <h4>Ready to Execute</h4>
         <p>{lastResponse.data.description}</p>
@@ -52,12 +69,37 @@ export const OperationExecutor: React.FC = () => {
               {operation.type === 'insert' && '➕'}
               {operation.type === 'delete' && '🗑️'}
               {operation.type === 'modify' && '✏️'}
+              {operation.type === 'copy' && '📋'}
+              {operation.type === 'move' && '📤'}
+              {operation.type === 'sort' && '↕️'}
+              {operation.type === 'filter' && '🔍'}
+              {operation.type === 'chart' && '📊'}
+              {operation.type === 'table' && '📋'}
             </div>
             <div className="operation-details">
               <div className="operation-description">{operation.description}</div>
               <div className="operation-target">Target: {operation.target}</div>
-              {operation.value && (
+              {'range' in operation && operation.range && (
+                <div className="operation-range">Range: {operation.range}</div>
+              )}
+              {'value' in operation && operation.value && (
                 <div className="operation-value">Value: {operation.value}</div>
+              )}
+              {/* Type-specific options */}
+              {operation.type === 'chart' && (
+                <div className="operation-options">
+                  <span className="option-tag">Chart: {operation.options.chartType}</span>
+                </div>
+              )}
+              {operation.type === 'sort' && (
+                <div className="operation-options">
+                  <span className="option-tag">Sort by: {operation.options.sortBy}</span>
+                </div>
+              )}
+              {operation.type === 'filter' && (
+                <div className="operation-options">
+                  <span className="option-tag">Filter: {JSON.stringify(operation.options.filterCriteria)}</span>
+                </div>
               )}
             </div>
           </div>

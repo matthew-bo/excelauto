@@ -5,17 +5,17 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xsi:type="TaskPaneApp">
 
-  <Id>aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee</Id>
+  <Id>55555555-5555-5555-5555-555555555555</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>SheetSense</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="SheetSense" />
   <Description DefaultValue="AI-powered Excel Add-in" />
-  <IconUrl DefaultValue="http://localhost:3000/assets/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="http://localhost:3000/assets/icon-64.png" />
+  <IconUrl DefaultValue="https://via.placeholder.com/32x32/0078d4/ffffff?text=S" />
+  <HighResolutionIconUrl DefaultValue="https://via.placeholder.com/64x64/0078d4/ffffff?text=S" />
 
   <AppDomains>
-    <AppDomain>http://localhost:3000</AppDomain>
+    <AppDomain>https://sheetsense.loca.lt</AppDomain>
   </AppDomains>
 
   <Hosts>
@@ -23,7 +23,7 @@
   </Hosts>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="http://localhost:3000/index.html" />
+    <SourceLocation DefaultValue="https://sheetsense.loca.lt/index.html" />
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
@@ -60,12 +60,12 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="http://localhost:3000/assets/icon-16.png" />
-        <bt:Image id="Icon.32x32" DefaultValue="http://localhost:3000/assets/icon-32.png" />
-        <bt:Image id="Icon.80x80" DefaultValue="http://localhost:3000/assets/icon-80.png" />
+        <bt:Image id="Icon.16x16" DefaultValue="https://via.placeholder.com/16x16/0078d4/ffffff?text=S" />
+        <bt:Image id="Icon.32x32" DefaultValue="https://via.placeholder.com/32x32/0078d4/ffffff?text=S" />
+        <bt:Image id="Icon.80x80" DefaultValue="https://via.placeholder.com/80x80/0078d4/ffffff?text=S" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Taskpane.Url" DefaultValue="http://localhost:3000/index.html" />
+        <bt:Url id="Taskpane.Url" DefaultValue="https://sheetsense.loca.lt/index.html" />
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="CommandsGroup.Label" DefaultValue="SheetSense" />

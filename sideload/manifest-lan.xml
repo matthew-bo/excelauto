@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xsi:type="TaskPaneApp">
+
+  <Id>dddddddd-eeee-ffff-gggg-hhhhhhhhhhhh</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>SheetSense</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="SheetSense" />
+  <Description DefaultValue="AI-powered Excel Add-in" />
+  <IconUrl DefaultValue="http://192.168.1.181:3000/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="http://192.168.1.181:3000/assets/icon-64.png" />
+
+  <AppDomains>
+    <AppDomain>http://192.168.1.181:3000</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="http://192.168.1.181:3000/index.html" />
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+</OfficeApp> 
